@@ -1,0 +1,87 @@
+nav {
+    background-color: transparent; /* el contenedor no tiene fondo */
+    padding: 1rem 2rem;
+    border-radius: 12px;
+  }
+  
+  .nav-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  
+  .nav-links li {
+    max-width: 300px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+  }
+  
+  .nav-links li:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 25%;
+    height: 50%;
+    width: 1px;
+    background-color: rgba(255, 255, 255, 0.1); /* separador fino */
+  }
+  
+  .nav-links a {
+    display: block;
+    padding: 0.75rem 1.5rem;
+    background-color: #12345A; /* ✅ restaurado */
+    color: var(--color-text);
+    text-decoration: none;
+    border-radius: 0; /* porque se unen como una sola barra */
+    transition: background-color 0.2s ease;
+    border-radius: 0; /* Para evitar que todos estén redondeados */
+  }
+
+  .nav-links li:first-child a {
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+  }
+  
+  .nav-links li:last-child a {
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+  }
+
+  .nav-links a:hover {
+    background-color: #1E4C8F;
+  }
+  
+
+
+
+  @media (max-width: 768px) {
+    .nav-links {
+      flex-direction: column;
+      align-items: stretch;
+      border-radius: 12px;
+    }
+  
+    .nav-links li:first-child a {
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+    }
+  
+    .nav-links li:last-child a {
+      border-bottom-left-radius: 12px;
+      border-bottom-right-radius: 12px;
+    }
+  
+    .nav-links li:not(:last-child)::after {
+      display: none; /* quitamos el separador vertical */
+    }
+  
+    .nav-links a {
+      border-radius: 0; /* evitamos bordes extraños en medio */
+    }
+  }
